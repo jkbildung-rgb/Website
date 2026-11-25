@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="de-AT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wald statt Stall</title>
+<meta name="description" content="Wild kann mehr als Gulasch: Chili, Burger, Tacos, Pasta und Bowls mit regionalem Wildbret. Rezepte, Saison und wo du Wild bekommst.">
+<style>
+/* VOICE frech, laut, alltagstauglich: Food-Poster statt Jagdzeitschrift
+   IDEA die Signalweste des Jägers trifft das Etikett vom Fleischhauer
+   PICTURE nächtlicher Fichtenwald mit großem Hirsch vor signal-oranger Sonne
+   COLOUR Fichtengrün #0e2a1e, Signalorange #ff5f0f, Weiß, Wildbret-Rot #8c1c24
+   TYPE Anton (Plakat) + Work Sans
+   LAYOUT Titel quer oben, Szene als volle Bahn darunter; Phone: gestapelt */
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/anton-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Anton';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/anton-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/work-sans-latin-ext-400-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:400;font-display:swap;src:url(fonts/work-sans-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/work-sans-latin-ext-500-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:500;font-display:swap;src:url(fonts/work-sans-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/work-sans-latin-ext-700-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Work Sans';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/work-sans-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0b1712);--ink:light-dark(#111a15,#eef2ee);--soft:light-dark(#4a564f,#a9b6ae);--line:light-dark(#dfe5e1,#23362c);--card:light-dark(#ffffff,#112219);--spruce:#0e2a1e;--orange:#ff5f0f;--red:#8c1c24;--tint:light-dark(#f2f5f3,#0f1f17)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Work Sans",system-ui,sans-serif;overflow-x:clip}
+img,svg{max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:Anton,Impact,"Arial Narrow",sans-serif;font-weight:400;line-height:1.05;letter-spacing:.005em;text-wrap:balance;margin:0}
+h2{font-size:clamp(34px,5vw,52px)}
+h3{font-size:26px}
+.band{padding-block:clamp(36px,5vw,72px);padding-inline:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+.lead{font-size:17px;max-width:62ch;color:var(--soft);margin:12px 0 0}
+nav{position:sticky;top:0;z-index:5;background:var(--spruce);color:#fff;display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px;padding:12px max(5vw,16px)}
+nav .logo{font-family:Anton,Impact,sans-serif;font-size:22px;text-decoration:none;margin-right:auto}
+nav .logo span{color:var(--orange)}
+nav .links{display:flex;flex-wrap:wrap;gap:4px 18px}
+nav .links a{text-decoration:none;font-weight:500;padding:8px 0;opacity:.9}
+nav .links a:hover{opacity:1;text-decoration:underline;text-decoration-color:var(--orange);text-underline-offset:5px}
+.hero{background:var(--spruce);color:#fff}
+.hero .top{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:24px 48px;align-items:end;padding-bottom:28px}
+.hero h1{font-size:clamp(52px,9vw,112px);line-height:.95}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p{font-size:18px;margin:0 0 18px;color:#d6e2da}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:4px;font-weight:700;text-decoration:none;border:2px solid var(--orange);background:var(--orange);color:#140800;cursor:pointer;font:700 16px "Work Sans",sans-serif}
+.btn.ghost{background:transparent;color:#fff}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.scene{display:block;width:100%;height:clamp(260px,38vw,460px)}
+.ticker{background:var(--orange);color:#140800;font-weight:700;display:flex;flex-wrap:wrap;gap:6px 28px;justify-content:center;padding:14px max(5vw,16px);font-size:17px}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px 32px;margin-bottom:28px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:0 18px;border-radius:999px;border:2px solid var(--ink);background:transparent;color:var(--ink);font:500 15px "Work Sans",sans-serif;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.card .lab{background:var(--c);color:#fff;padding:18px 20px 16px;position:relative}
+.card .lab small{display:block;font-weight:700;opacity:.9;margin-bottom:4px}
+.card .lab h3{font-size:30px}
+.card .lab .hook{margin:8px 0 0;font-size:15px;color:#fff;opacity:.92}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px 16px;padding:12px 20px 0;font-size:14px;color:var(--soft);font-weight:500}
+.card .meta b{color:var(--ink);white-space:nowrap}
+.card .body{padding:8px 20px 20px;display:grid;gap:4px;flex:1}
+.card h4{margin:12px 0 4px;font-size:14px;font-weight:700}
+.card ul,.card ol{margin:0;padding-left:20px;font-size:15px}
+.card li{margin:2px 0}
+.tip{margin-top:12px;padding:10px 12px;border-left:4px solid var(--orange);background:var(--tint);font-size:14.5px}
+.tip.warn{border-color:var(--red)}
+.note{font-size:13px;color:var(--soft);margin-top:18px}
+.why{background:var(--tint)}
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.fact .big{font-family:Anton,Impact,sans-serif;font-size:clamp(44px,5vw,64px);line-height:1;color:var(--red)}
+:root[data-theme=dark] .fact .big{color:var(--orange)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .fact .big{color:var(--orange)}}
+.fact h3{font-size:22px;margin:8px 0 6px}
+.fact p{margin:0;color:var(--soft);font-size:15.5px}
+.season{margin-top:40px;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px}
+.months,.srow{display:grid;grid-template-columns:8.5em repeat(12,minmax(0,1fr));align-items:center}
+.months span{font-size:13px;color:var(--soft);text-align:center}
+.srow{padding:6px 0;border-top:1px solid var(--line)}
+.srow b{font-size:15px}
+.cell{height:22px;margin:0 1px;border-radius:2px;background:var(--line)}
+.cell.on{background:var(--orange)}
+.cell.top{background:var(--red)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 20px;font-size:13px;color:var(--soft);margin-top:12px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;vertical-align:-2px;margin-right:6px}
+.buy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:40px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.steps li{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;align-items:start;padding:16px;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+.steps .ico{width:56px;height:56px;border-radius:50%;background:var(--spruce);display:grid;place-items:center}
+.steps h3{font-size:22px}
+.steps p{margin:4px 0 0;color:var(--soft);font-size:15.5px}
+.checks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.checks li{padding-left:30px;position:relative}
+.checks li::before{content:"";position:absolute;left:0;top:5px;width:16px;height:9px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange);transform:rotate(-45deg)}
+.rules{background:var(--red);color:#fff}
+.rules .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:24px}
+.rule{background:rgba(0,0,0,.18);border-radius:6px;padding:22px}
+.rule .big{font-family:Anton,Impact,sans-serif;font-size:clamp(40px,5vw,60px);line-height:1;color:#ffd2b8}
+.rule h3{margin:10px 0 6px;font-size:24px}
+.rule p{margin:0;color:#ffe9de}
+.join{background:var(--spruce);color:#fff}
+.join .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:center}
+.join p{color:#d6e2da}
+form{display:flex;flex-wrap:wrap;gap:10px}
+form input{flex:1 1 220px;min-height:48px;padding:0 14px;font:16px "Work Sans",sans-serif;border:2px solid #fff;border-radius:4px;background:#fff;color:#111}
+#msg{width:100%;margin:6px 0 0;min-height:1.5em;font-weight:500;color:#ffd2b8}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tags span{border:1px solid #4d7262;border-radius:999px;padding:4px 12px;font-size:14px}
+footer{background:#07130d;color:#b8c7be;font-size:15px}
+footer .in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px}
+footer b{color:#fff}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.facts{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:820px){.hero .top,.buy,.join .in{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.grid,.rules .grid2{grid-template-columns:minmax(0,1fr)}.months,.srow{grid-template-columns:5.5em repeat(12,minmax(0,1fr))}.months span{font-size:11px}nav .links{gap:2px 14px;font-size:15px}.facts{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#sun{animation:none!important}}
+.legal{border-top:1px solid var(--line);padding-block:24px}
+.legal details{max-width:860px;margin:0 auto;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+.legal details+details{margin-top:14px}
+.legal summary{cursor:pointer;padding:16px 20px;min-height:44px;font-family:Anton,Impact,sans-serif;font-size:24px;list-style-position:inside}
+.legal .txt{padding:0 20px 20px;font-size:15.5px}
+.legal h4{margin:18px 0 4px;font-size:16px}
+.legal p,.legal ul{margin:4px 0}
+.fill{background:#ffe066;color:#111;padding:0 4px;border-radius:2px;font-weight:700}
+.nlnote{font-size:14px;color:#d6e2da;margin:12px 0 0}
+.nlnote a{color:#fff}
+.nlframe{display:block;width:100%;max-width:540px;height:460px;border:0;border-radius:6px;background:#fff}
+@keyframes rise{from{transform:translateY(40px)}to{transform:translateY(0)}}
+</style>
+</head>
+<body>
+<nav aria-label="Hauptnavigation">
+  <a class="logo" href="#top">Wald statt <span>Stall</span></a>
+  <div class="links">
+    <a href="#rezepte">Rezepte</a>
+    <a href="#warum">Warum Wild</a>
+    <a href="#kaufen">Wo kaufen</a>
+    <a href="#regeln">Regeln</a>
+    <a href="#mitmachen">Mitmachen</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="band wrap top" style="padding-inline:0">
+    <h1>Wild kann mehr als <em>Gulasch.</em></h1>
+    <div>
+      <p>Chili, Burger, Tacos, Pasta, Bowls. Regionales Wildbret, das nie im Kühllaster quer durch Europa war. Für alle, die gern kochen, nicht nur für Jäger.</p>
+      <div class="btns">
+        <a class="btn" href="#rezepte">Rezepte ansehen</a>
+        <a class="btn ghost" href="#kaufen">Wo krieg ich Wild?</a>
+      </div>
+    </div>
+  </div>
+  <svg class="scene" id="scene" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Hirsch im Fichtenwald vor oranger Sonne">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0e2a1e"/><stop offset="1" stop-color="#1f4a36"/></linearGradient>
+      <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8a3d"/><stop offset="1" stop-color="#ff5f0f"/></linearGradient>
+      <path id="tree" d="M0 0 L-14 26 H-7 L-22 52 H-12 L-30 84 H30 L12 52 H22 L7 26 H14 Z"/>
+      <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(35)"><rect width="2" height="6" fill="#ffffff" opacity=".08"/></pattern>
+    </defs>
+    <rect width="1200" height="460" fill="url(#sky)"/>
+    <g id="sun" style="animation:rise 1.4s ease-out both"><circle cx="820" cy="250" r="170" fill="url(#sunG)"/><circle cx="820" cy="250" r="170" fill="url(#hatch)"/></g>
+    <g id="far" fill="#2f6248"></g>
+    <path d="M0 380 C200 340 380 360 560 345 S900 320 1200 350 V460 H0Z" fill="#245039"/>
+    <g id="mid" fill="#173b2a"></g>
+    <path d="M0 420 C260 395 520 400 700 392 S1000 380 1200 400 V460 H0Z" fill="#0a1f15"/>
+    <g id="stag" transform="translate(560 120) scale(1.05)">
+      <ellipse cx="300" cy="292" rx="95" ry="14" fill="#04100a" opacity=".6"/>
+      <g fill="#06140d">
+        <rect x="238" y="200" width="14" height="88" rx="5"/><rect x="262" y="205" width="13" height="84" rx="5"/>
+        <rect x="350" y="198" width="14" height="90" rx="5"/><rect x="374" y="200" width="13" height="88" rx="5"/>
+        <path d="M230 170 C232 135 280 125 330 128 C370 130 400 140 404 168 C408 200 380 218 320 218 C270 218 228 206 230 170Z"/>
+        <path d="M404 150 C414 146 420 152 416 164 C412 168 406 166 404 160Z"/>
+        <path d="M228 178 L250 140 L226 72 L200 80 L212 150Z"/>
+        <path d="M226 72 C214 58 196 56 186 62 L148 88 C140 94 144 104 154 104 L184 100 L208 94 L226 92Z"/>
+        <path d="M222 64 L248 46 L238 72Z"/>
+      </g>
+      <path d="M230 170 C232 135 280 125 330 128 C370 130 400 140 404 168" fill="none" stroke="#ff8a3d" stroke-width="3" opacity=".7"/>
+      <path d="M226 72 C214 58 196 56 186 62 L148 88" fill="none" stroke="#ff8a3d" stroke-width="2.5" opacity=".7"/>
+      <g fill="none" stroke="#06140d" stroke-width="7" stroke-linecap="round">
+        <path d="M214 62 C206 30 214 4 236 -24 C246 -38 262 -48 274 -54"/>
+        <path d="M212 40 L186 26"/><path d="M220 10 L198 -12"/><path d="M236 -24 L232 -52"/><path d="M256 -42 L262 -66"/>
+        <path d="M222 60 C230 30 252 10 280 -4 C294 -10 306 -12 318 -14"/>
+        <path d="M244 26 L246 0"/><path d="M276 -2 L286 -24"/><path d="M300 -10 L314 -30"/>
+      </g>
+    </g>
+    <g id="near" fill="#06140d"></g>
+  </svg>
+</header>
+
+<div class="ticker"><span>Regional</span><span>Kurzer Weg vom Revier zur Pfanne</span><span>Mager &amp; eiweißreich</span><span>Kein Gulasch-Zwang</span></div>
+
+<section class="band" id="rezepte">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2>Sechs Rezepte, null Omas-Sonntagsbraten.</h2>
+        <p class="lead">Jedes für 4 Personen, maximal sechs Zutatenzeilen, vier Schritte. Wenn du ein Faschiertes braten kannst, kannst du das auch.</p>
+      </div>
+      <div class="chips" role="group" aria-label="Nach Wildart filtern" id="filter"></div>
+    </div>
+    <div class="grid" id="cards"></div>
+    <p class="note">Rezept-Bilder fürs Social-Feed entstehen per KI und kommen hier je Karte rein.</p>
+  </div>
+</section>
+
+<section class="band why" id="warum">
+  <div class="wrap">
+    <h2>Warum Wild das bessere Fleisch ist.</h2>
+    <p class="lead">Kein Stall, kein Kraftfutter, kein Tiertransport. Das Tier lebt im Wald, bis es geschossen wird, und landet oft beim Fleischhauer ums Eck.</p>
+    <div class="facts" style="margin-top:32px">
+      <div class="fact"><div class="big">0 km</div><h3>Tiertransport</h3><p>Erlegt wird im Revier. Danach geht's zur Kühlkammer, nicht quer durch Europa.</p></div>
+      <div class="fact"><div class="big">~2–4 %</div><h3>Fett in der Keule</h3><p>Reh- und Hirschkeule sind etwa so mager wie Hühnerbrust und haben dabei echten Geschmack.</p></div>
+      <div class="fact"><div class="big">100 %</div><h3>Freilauf</h3><p>Kräuter, Knospen, Eicheln: Das Tier frisst, was es findet. Das schmeckt man.</p></div>
+      <div class="fact"><div class="big">Ums Eck</div><h3>Regional</h3><p>In Österreich wird jedes Jahr viel Wild erlegt. Trotzdem kommt im Handel oft Importware ins Regal. Frag nach der Herkunft.</p></div>
+    </div>
+    <div class="season" aria-labelledby="saison-h">
+      <h3 id="saison-h">Wann gibt's was?</h3>
+      <p class="note" style="margin:4px 0 14px">Ungefähre Hauptzeiten frischer Ware in Österreich. Schusszeiten unterscheiden sich je Bundesland, tiefgekühlt gibt's das ganze Jahr.</p>
+      <div class="scroll">
+        <div class="months" id="months"><span></span></div>
+        <div id="srows"></div>
+      </div>
+      <div class="legend"><span><i style="background:var(--red)"></i>Hauptsaison</span><span><i style="background:var(--orange)"></i>Gut erhältlich</span><span><i style="background:var(--line)"></i>Eher tiefgekühlt</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="kaufen">
+  <div class="wrap buy">
+    <div>
+      <h2>Wo krieg ich gutes Wild her?</h2>
+      <p class="lead">Spoiler: Nicht aus der Kühltruhe mit Neuseeland-Flagge. Je kürzer der Weg, desto besser das Fleisch.</p>
+      <ul class="checks">
+        <li>Frag immer nach dem Revier oder zumindest der Region.</li>
+        <li>Wildschwein nur mit Trichinenuntersuchung kaufen.</li>
+        <li>Ganze Stücke lassen sich gut einfrieren. Kauf im Herbst mehr.</li>
+        <li>Wildfaschiertes gibt's selten fertig. Lass es dir frisch drehen.</li>
+      </ul>
+    </div>
+    <ol class="steps" id="buy"></ol>
+  </div>
+</section>
+
+<section class="band rules" id="regeln">
+  <div class="wrap">
+    <h2>Zwei Regeln. Keine Diskussion.</h2>
+    <div class="grid2">
+      <div class="rule"><div class="big">Durch.</div><h3>Wildfaschiertes immer durchgaren</h3><p>Burger, Ćevapčići, Chili: Faschiertes von Wild wird ganz durchgebraten, innen nicht mehr rosa. Ein Kernthermometer zeigt mindestens 70 °C. Steaks vom Reh oder Hirsch dürfen rosa bleiben.</p></div>
+      <div class="rule"><div class="big">Geprüft.</div><h3>Wildschwein und Dachs nur trichinenuntersucht</h3><p>Diese Tiere können Trichinen tragen. Kauf und verarbeite nur Fleisch mit amtlicher Trichinenuntersuchung. Seriöse Anbieter haben die immer.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band join" id="mitmachen">
+  <div class="wrap in">
+    <div>
+      <h2>Koch mit. Und zeig's her.</h2>
+      <p>Neue Rezepte jede Woche auf Instagram, TikTok und Pinterest. Hast du was nachgekocht? Poste es mit #waldstattstall, wir teilen die besten Teller.</p>
+      <div class="tags"><span>#waldstattstall</span><span>#wildmalanders</span><span>#wildbret</span><span>#regionalkochen</span><span>#wildrezepte</span></div>
+    </div>
+    <div>
+      <h3 style="font-size:28px;margin-bottom:8px">Der Saisonbrief. 4× im Jahr.</h3>
+      <p style="margin:0 0 14px">Was gerade Saison hat, wann du wo frisches Wild bekommst, und Infos, die nicht auf Instagram landen.</p>
+      <div id="nlbox">
+        <button class="btn" type="button" id="nlload">Zum Saisonbrief anmelden</button>
+        <p class="nlnote">Das Anmeldeformular kommt von unserem Newsletter-Dienst Brevo und wird erst nach deinem Klick geladen. Mehr dazu in der <a href="#datenschutz">Datenschutzerklärung</a>. Klappt nicht? <a href="https://52a70e12.sibforms.com/v2/serve/MUIFAEeDdqYqPgQT0fj8zHixXD30Yy--VJ8VLV3-hTxRvNscVxB1oJOImQAf5smspSl7Gob0n9h7W8O8_UEPtrUWt99Hnq7byq88b60uhsPtMjR3jJxgQ3F_kxf2nB2ciNTMVh4uoIxhG6rz-OGIN_DCqSRFuQqNoN6In1k5hED0HRf7WegbhIfdk8N9RXe81pMKZxrwS-CNzjaTGA==" target="_blank" rel="noopener">Formular in neuem Tab öffnen</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band legal" aria-label="Rechtliches">
+  <details id="impressum">
+    <summary>Impressum</summary>
+    <div class="txt">
+      <p>Offenlegung gemäß § 25 Mediengesetz und Informationen gemäß § 5 E-Commerce-Gesetz</p>
+      <h4>Medieninhaber und Herausgeber</h4>
+      <p>Jürgen Kramer<br>Am Katzensteig 14<br>3500 Krems an der Donau<br>Österreich</p>
+      <h4>Kontakt</h4>
+      <p>E-Mail: juergen.kramer@proton.me</p>
+      <h4>Grundlegende Richtung (Blattlinie)</h4>
+      <p>„Wald statt Stall“ veröffentlicht Rezepte und Informationen rund um Wildbret: moderne, alltagstaugliche Wildgerichte, Bezugsquellen, Regionalität und den sicheren Umgang mit Wildfleisch.</p>
+      <h4>Haftung für Inhalte und Links</h4>
+      <p>Die Rezepte und Informationen werden sorgfältig erstellt, eine Gewähr für Vollständigkeit und Richtigkeit wird nicht übernommen. Für Inhalte verlinkter externer Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+      <h4>Bilder</h4>
+      <p>Abbildungen auf dieser Website können mit Hilfe künstlicher Intelligenz erstellt sein.</p>
+    </div>
+  </details>
+  <details id="datenschutz">
+    <summary>Datenschutzerklärung</summary>
+    <div class="txt">
+      <h4>1. Verantwortlicher</h4>
+      <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist Jürgen Kramer, Am Katzensteig 14, 3500 Krems an der Donau, E-Mail: juergen.kramer@proton.me.</p>
+      <h4>2. Hosting und Server-Logfiles</h4>
+      <p>Diese Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten: IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem. Das dient dem sicheren und stabilen Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO). Übermittlungen in die USA erfolgen auf Grundlage des EU-U.S. Data Privacy Framework (Art. 45 DSGVO) bzw. der EU-Standardvertragsklauseln (Art. 46 DSGVO).</p>
+      <h4>3. Keine Cookies, kein Tracking</h4>
+      <p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Werbedienste. Externe Inhalte werden nur geladen, wenn du das Newsletter-Formular selbst öffnest (siehe Punkt 6). Die Schriftarten sind lokal auf unserem Server gespeichert; es wird keine Verbindung zu Google oder anderen Schriftanbietern aufgebaut.</p>
+      <h4>4. Lokaler Speicher im Browser</h4>
+      <p>Wenn du die Rezepte nach Wildart filterst, merkt sich dein Browser diese Auswahl im lokalen Speicher. Diese Information bleibt auf deinem Gerät und wird nicht an uns übertragen. Du kannst sie jederzeit über die Einstellungen deines Browsers löschen.</p>
+      <h4>5. Kontakt per E-Mail</h4>
+      <p>Wenn du uns per E-Mail schreibst, verarbeiten wir deine Angaben zur Bearbeitung deiner Anfrage (Art. 6 Abs. 1 lit. b bzw. f DSGVO) und löschen sie, sobald sie dafür nicht mehr nötig sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+      <h4>6. Newsletter „Saisonbrief“</h4>
+      <p>Für den Saisonbrief (etwa viermal im Jahr) nutzen wir den Versanddienst Brevo GmbH, Köpenicker Str. 126, 10179 Berlin, Deutschland, als Auftragsverarbeiter. Das Anmeldeformular wird erst geladen, wenn du auf „Zum Saisonbrief anmelden“ klickst; ab diesem Moment verarbeitet Brevo technische Daten wie deine IP-Adresse.</p>
+      <p>Für die Anmeldung brauchen wir nur deine E-Mail-Adresse. Wir nutzen das Double-Opt-in-Verfahren: Erst wenn du den Link in der Bestätigungs-Mail anklickst, wirst du eingetragen. Zeitpunkt der Anmeldung und Bestätigung sowie die IP-Adresse werden gespeichert, damit wir die Anmeldung nachweisen können. Rechtsgrundlage ist deine Einwilligung (Art. 6 Abs. 1 lit. a DSGVO).</p>
+      <p>Brevo kann erfassen, ob ein Newsletter geöffnet und welche Links angeklickt wurden. Wir nutzen diese Auswertung nur, um den Saisonbrief zu verbessern. Du kannst deine Einwilligung jederzeit widerrufen, über den Abmeldelink in jeder Ausgabe oder per E-Mail an uns. Deine Daten werden dann gelöscht.</p>
+      <h4>7. Social Media</h4>
+      <p>Wir verweisen auf unsere Kanäle bei Instagram, TikTok und Pinterest nur über Hashtags bzw. einfache Links. Erst wenn du diese Plattformen aufrufst, verarbeiten deren Betreiber Daten nach ihren eigenen Datenschutzbestimmungen.</p>
+      <h4>8. Deine Rechte</h4>
+      <p>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wende dich dafür an die oben genannte E-Mail-Adresse. Wenn du meinst, dass die Verarbeitung deiner Daten gegen das Datenschutzrecht verstößt, kannst du dich bei der Österreichischen Datenschutzbehörde beschweren: Barichgasse 40–42, 1030 Wien, dsb.gv.at.</p>
+      <p style="margin-top:14px;color:var(--soft)">Stand: November 2026</p>
+    </div>
+  </details>
+</section>
+
+<footer class="band">
+  <div class="wrap in">
+    <div><b>Wald statt Stall</b><br>Moderne Wildküche aus Österreich</div>
+    <div>forestfoodmarket.com<br>Instagram: @waldstattstall<br>#waldstattstall</div>
+    <div><a href="#regeln">Sicherheit</a> · <a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></div>
+  </div>
+</footer>
+
+<script>
+{
+  const recipes=[
+    {id:"chili",art:"Hirsch",c:"#8c1c24",name:"Hirsch-Chili",hook:"Chili con Carne war gestern. Ab heute: con Hirsch.",time:"60 Min",lvl:"Easy",
+     ing:["600 g Hirschfaschiertes","2 Zwiebeln, 3 Knoblauchzehen","800 g gehackte Paradeiser (Dose)","1 Dose Kidneybohnen, 1 Dose Mais","2 TL Kreuzkümmel, 1–2 TL Chiliflocken","1 Rippe Zartbitterschokolade"],
+     st:["Faschiertes in Öl scharf anbraten, bis es komplett durch und krümelig ist.","Zwiebeln und Knoblauch dazu, Gewürze kurz mitrösten.","Paradeiser, Bohnen und Mais rein, 40 Minuten leise köcheln.","Schokolade einrühren, salzen, mit Sauerrahm und Brot servieren."],
+     tip:"Die Schokolade macht das Chili rund. Schmeckt man nicht, merkt man aber."},
+    {id:"burger",art:"Reh",c:"#c2410c",name:"Reh-Burger",hook:"Rindfleisch-Burger? Schmeckt neben dem hier nach Karton.",time:"30 Min",lvl:"Easy",
+     ing:["600 g Rehfaschiertes","4 Brioche-Buns","4 Scheiben Bergkäse","4 EL Mayo + 2 EL Preiselbeeren","1 rote Zwiebel","1 Handvoll Rucola"],
+     st:["Faschiertes salzen, pfeffern, zu 4 flachen Laibchen formen.","In der Pfanne pro Seite 4–5 Minuten braten, bis sie durch sind (Kern 70 °C). Käse am Schluss drauflegen.","Buns anrösten, Mayo mit Preiselbeeren verrühren.","Bun, Preiselbeer-Mayo, Rucola, Patty, Zwiebelringe. Fertig."],
+     tip:"Reh ist sehr mager. Ein Löffel kalte Butter im Faschierten hält die Patties saftig."},
+    {id:"tacos",art:"Wildschwein",c:"#0e2a1e",name:"Wildschwein-Tacos",hook:"Pulled Pork kann jeder. Pulled Wildsau ist Oberliga.",time:"3 Std",lvl:"Mittel",
+     ing:["1 kg Wildschweinschulter (trichinenuntersucht)","8 kleine Tortillas","2 EL Chipotle-Paste oder Paprikapulver geräuchert","¼ Rotkraut, fein gehobelt","2 Limetten","1 Becher Sauerrahm"],
+     st:["Schulter mit Chipotle, Salz und etwas Öl einreiben.","Mit 200 ml Wasser zugedeckt bei 150 °C ca. 3 Stunden schmoren, bis sie zerfällt.","Fleisch mit zwei Gabeln zerzupfen, mit Bratensaft und Limettensaft mischen.","Tortillas anwärmen, mit Fleisch, Rotkraut und Sauerrahm füllen."],
+     tip:"Schmort lieber am Vortag. Aufgewärmt wird's noch besser."},
+    {id:"ragu",art:"Hirsch",c:"#5b2a1a",name:"Wild-Ragù Pappardelle",hook:"Bolognese-Fans, haltet euch fest.",time:"2,5 Std",lvl:"Mittel",
+     ing:["800 g Hirsch- oder Rehschulter, gewürfelt","500 g Pappardelle","1 Bund Suppengrün, fein gewürfelt","2 EL Paradeisermark","250 ml Rotwein","Parmesan zum Drüberreiben"],
+     st:["Fleisch portionsweise scharf anbraten, rausnehmen.","Suppengrün anrösten, Paradeisermark mitrösten, mit Rotwein ablöschen.","Fleisch zurück, mit Wasser bedecken, 2 Stunden schmoren, dann zerzupfen.","Pappardelle bissfest kochen, mit Ragù mischen, Parmesan drauf."],
+     tip:"Ein Zweig Rosmarin und zwei Wacholderbeeren beim Schmoren machen's waldig, ohne nach Omas Braten zu schmecken."},
+    {id:"bowl",art:"Reh",c:"#a1520f",name:"Reh-Bowl mit Kren-Joghurt",hook:"Bowls sind langweilig? Nicht mit rosa Rehrücken.",time:"35 Min",lvl:"Easy",
+     ing:["500 g Rehrücken oder Keulensteaks","250 g Rollgerste oder Quinoa","½ Hokkaido-Kürbis, gewürfelt","¼ Rotkraut, fein gehobelt","200 g Joghurt + 2 TL Kren","2 EL Kürbiskerne"],
+     st:["Kürbis mit Öl und Salz bei 200 °C 20 Minuten rösten, Gerste kochen.","Fleisch salzen, pro Seite 2–3 Minuten scharf anbraten, 5 Minuten rasten lassen.","Joghurt mit Kren und Salz verrühren.","Alles in Schüsseln anrichten, Fleisch aufschneiden, Kerne drüber."],
+     tip:"Ganze Stücke vom Reh dürfen rosa bleiben. Nur Faschiertes muss durch."},
+    {id:"cevap",art:"Wildschwein",c:"#3d4f1c",name:"Wildsau-Ćevapčići",hook:"Balkan-Grill meets Weinviertler Wald.",time:"40 Min",lvl:"Easy",
+     ing:["600 g Wildschweinfaschiertes (trichinenuntersucht)","2 Knoblauchzehen, gepresst","1 TL Paprikapulver, ½ TL Natron","1 Glas Ajvar","1 Zwiebel, fein gehackt","4 Fladenbrote"],
+     st:["Faschiertes mit Knoblauch, Paprika, Natron und Salz gut verkneten, 20 Minuten kühlen.","Fingerdicke Röllchen formen.","Auf Grill oder Pfanne rundum braten, bis sie ganz durch sind (Kern 70 °C).","In Fladenbrot mit Ajvar und roher Zwiebel servieren."],
+     tip:"Das Natron macht die Röllchen locker und saftig. Nicht weglassen."}
+  ];
+  const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const cards=document.getElementById('cards');
+  const render=f=>{
+    cards.innerHTML=recipes.filter(r=>f==="Alle"||r.art===f).map(r=>`
+    <article class="card" style="--c:${r.c}" id="r-${r.id}">
+      <div class="lab"><small>${esc(r.art)}</small><h3>${esc(r.name)}</h3><p class="hook">${esc(r.hook)}</p></div>
+      <div class="meta"><span>Für <b>4 Personen</b></span><span>Zeit <b>${esc(r.time)}</b></span><span>Level <b>${esc(r.lvl)}</b></span></div>
+      <div class="body">
+        <h4>Du brauchst</h4><ul>${r.ing.map(i=>`<li>${esc(i)}</li>`).join('')}</ul>
+        <h4>So geht's</h4><ol>${r.st.map(i=>`<li>${esc(i)}</li>`).join('')}</ol>
+        <div class="tip"><b>Tipp:</b> ${esc(r.tip)}</div>
+      </div>
+    </article>`).join('');
+  };
+  const arts=["Alle","Hirsch","Reh","Wildschwein"];
+  const fb=document.getElementById('filter');
+  let cur="Alle";
+  try{const s=localStorage.getItem('wss-filter');if(arts.includes(s))cur=s}catch(e){}
+  const drawChips=()=>{fb.innerHTML=arts.map(a=>`<button class="chip" type="button" aria-pressed="${a===cur}" data-a="${a}">${a}</button>`).join('')};
+  fb.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;cur=b.dataset.a;try{localStorage.setItem('wss-filter',cur)}catch(err){}drawChips();render(cur)});
+  drawChips();render(cur);
+
+  const M=["J","F","M","A","M","J","J","A","S","O","N","D"];
+  document.getElementById('months').innerHTML='<span></span>'+M.map(m=>`<span>${m}</span>`).join('');
+  const season=[
+    {n:"Reh",on:[5,6,7,8,9,10,11,12],top:[9,10,11]},
+    {n:"Rotwild",on:[8,9,10,11,12],top:[9,10,11]},
+    {n:"Wildschwein",on:[1,2,3,4,5,6,7,8,9,10,11,12],top:[10,11,12,1]},
+    {n:"Gams",on:[8,9,10,11,12],top:[10,11]},
+    {n:"Fasan",on:[10,11,12],top:[11]}
+  ];
+  document.getElementById('srows').innerHTML=season.map(s=>`<div class="srow"><b>${s.n}</b>${M.map((m,i)=>{const k=i+1;const c=s.top.includes(k)?'cell top':s.on.includes(k)?'cell on':'cell';return `<div class="${c}"></div>`}).join('')}</div>`).join('');
+
+  const ico={
+    hunter:'<svg width="30" height="30" viewBox="0 0 30 30"><path d="M15 3 L24 9 V17 C24 22 20 26 15 27 C10 26 6 22 6 17 V9Z" fill="#ff5f0f"/><path d="M11 15 l3 3 l6 -6" stroke="#0e2a1e" stroke-width="2.6" fill="none"/></svg>',
+    shop:'<svg width="30" height="30" viewBox="0 0 30 30"><path d="M4 11 L7 5 H23 L26 11Z" fill="#ff5f0f"/><rect x="6" y="11" width="18" height="14" fill="#fff"/><rect x="12" y="16" width="6" height="9" fill="#0e2a1e"/></svg>',
+    farm:'<svg width="30" height="30" viewBox="0 0 30 30"><path d="M4 14 L15 5 L26 14Z" fill="#ff5f0f"/><rect x="7" y="14" width="16" height="11" fill="#fff"/><path d="M12 25 V19 H18 V25" fill="#0e2a1e"/></svg>',
+    market:'<svg width="30" height="30" viewBox="0 0 30 30"><path d="M3 10 H27 L24 15 H6Z" fill="#ff5f0f"/><rect x="6" y="15" width="2.5" height="11" fill="#fff"/><rect x="21.5" y="15" width="2.5" height="11" fill="#fff"/><rect x="8" y="19" width="14" height="3" fill="#fff"/></svg>'
+  };
+  const buy=[
+    {i:"hunter",h:"Direkt beim Jäger",p:"Am kürzesten geht's nicht. Frag in deiner Gemeinde nach der Jagdgesellschaft oder beim Landesjagdverband. Oft gibt's ganze Stücke küchenfertig zerlegt."},
+    {i:"shop",h:"Beim Fleischhauer",p:"Viele regionale Fleischhauer verarbeiten Wild aus der Umgebung, vor allem im Herbst. Vorbestellen lohnt sich, auch fürs Faschierte."},
+    {i:"farm",h:"Hofladen & Direktvermarkter",p:"Wildbret-Direktvermarkter verkaufen vakuumiert und tiefgekühlt, oft auch online mit Abholung."},
+    {i:"market",h:"Bauernmarkt",p:"Am Wochenmarkt findest du in der Saison Wildwürste, Leberkäse und Frischfleisch. Und kannst gleich fragen, woher's kommt."}
+  ];
+  document.getElementById('buy').innerHTML=buy.map(b=>`<li><div class="ico">${ico[b.i]}</div><div><h3>${b.h}</h3><p>${b.p}</p></div></li>`).join('');
+
+  let seed=7;const rnd=()=>(seed=seed*16807%2147483647)/2147483647;
+  const forest=(id,n,y0,y1,s0,s1)=>{
+    const g=document.getElementById(id);let h='';
+    for(let k=0;k<n;k++){const x=k/n*1240-20+rnd()*30;const s=s0+rnd()*(s1-s0);const y=y0+rnd()*(y1-y0);
+      if(id==='near'&&x>640&&x<1000)continue;
+      h+=`<use href="#tree" transform="translate(${x.toFixed(1)} ${(y-84*s).toFixed(1)}) scale(${s.toFixed(2)})"/>`}
+    g.innerHTML=h;
+  };
+  forest('far',46,350,365,.9,1.4);
+  forest('mid',30,395,410,1.4,2.1);
+  forest('near',12,470,480,2.6,3.4);
+
+  const openLegal=()=>{const id=location.hash.slice(1);if(id==='impressum'||id==='datenschutz'){const d=document.getElementById(id);d.open=true;d.scrollIntoView()}};
+  window.addEventListener('hashchange',openLegal);openLegal();
+
+  const nlb=document.getElementById('nlload');
+  nlb.addEventListener('click',()=>{const fr=document.createElement('iframe');fr.src="https://52a70e12.sibforms.com/v2/serve/MUIFAEeDdqYqPgQT0fj8zHixXD30Yy--VJ8VLV3-hTxRvNscVxB1oJOImQAf5smspSl7Gob0n9h7W8O8_UEPtrUWt99Hnq7byq88b60uhsPtMjR3jJxgQ3F_kxf2nB2ciNTMVh4uoIxhG6rz-OGIN_DCqSRFuQqNoN6In1k5hED0HRf7WegbhIfdk8N9RXe81pMKZxrwS-CNzjaTGA==";fr.title="Anmeldung Saisonbrief";fr.className="nlframe";fr.setAttribute('scrolling','auto');nlb.replaceWith(fr);fr.focus()});
+}
+</script>
+</body>
+</html>
